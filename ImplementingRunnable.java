@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+class Main {
 
     public static void main(String[] args) {
     	Scanner sc=new Scanner(System.in);
@@ -9,13 +9,14 @@ public class Main {
         
         for(int i=1;i<=k;i++){
         	Worker w=new Worker(i,n);
-        	w.start();
+        	Thread t=new Thread(w);
+        	t.start();
         }
 
     }
 }
 
-class Worker implements Runnable{
+public class Worker implements Runnable{
 	int id;
 	int n;
 	public Worker(int id,int n){
